@@ -26,4 +26,14 @@ describe('PostList component', () => {
     firstPost.simulate('click');
     expect(removePostMock).toHaveBeenCalled();
   });
+
+  it('should render message when no posts available', () => {
+    const postsState = {
+      postList: []
+    };
+
+    const wrapper = shallow(<PostsList getPostsAction={() => {}} removePost={() => {}} postsState={postsState} />);
+
+    expect(wrapper.find('.post__empty-msg').text()).toBe('Sorry, no posts yet');
+  });
 });

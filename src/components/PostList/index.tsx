@@ -21,7 +21,7 @@ export class PostsList extends React.Component<Props> {
 
   renderPosts() {
     if (!this.props.postsState.postList.length) {
-      return <p>Sorry, no posts yet</p>;
+      return <p className="post__empty-msg">Sorry, no posts yet</p>;
     }
 
     return this.props.postsState.postList.map(({ id, userId, title, body }) => {
